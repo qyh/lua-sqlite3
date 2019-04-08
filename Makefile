@@ -30,4 +30,4 @@ SQLITE_SO:	lua-sqlite.c liblua.a libsqlite3.a
 	$(CC) $(CFLAGS)	-o $(SQLITE_SO) $^ $(LIBS)
 
 clean :
-	-rm -rf $(SQLITE_SO) && rm -rf $(LUA_PATH)/*.o && rm -rf $(LUA_PATH)/*.so  && rm -rf $(LUA_PATH)/*.a  && $(MAKE) clean -C $(SQLITE_PATH)
+	-rm -rf $(SQLITE_SO) && rm -rf $(LUA_PATH)/*.o && rm -rf $(LUA_PATH)/*.so  && rm -rf $(LUA_PATH)/*.a  && $(MAKE) clean -C $(SQLITE_PATH) && rm -rf testDB.db && rm -rf *.a
