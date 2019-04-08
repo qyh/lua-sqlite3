@@ -1,5 +1,5 @@
 language: c 
-before_install: sudo apt-get  install lua5.2
+before_install: sudo apt-get  install make 
 rvm:
  - 4.8
  - 5.0 
