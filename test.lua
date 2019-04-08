@@ -1,25 +1,20 @@
 local sqlite = require "sqlite"
 print('test.lua')
 local o = sqlite.open("./testDB.db");
-print(o:test(a, function(t)
-	print('on callback function')
-	print(string.format('a:%s', a))
-	for k, v in pairs(t) do
-		print(k, v)
-	end
-end))
 
+--create table
+local sql = [[
+	create table user(ID int primary key not null,
+	name text not null default ''
+	);
+]]
+local r = o:exec(sql)
+print('create table result:', r)
 
-local r = o:sqlite3_exec("select * from user;", function(rv) 
-	print('on call back :')
-	if rv then
-		for k, v in pairs(rv) do
-			print(k, v)
-		end
-	end
-end)
-print('exec return :', r)
-print(o:exec("update user set gold=900 where ID=3"))
+--test insert 
+r = o:exec("insert into user(ID, name) values(1, 'jack');insert into user(ID, name) values(2, 'foo')")
+print('insert result:', r)
+print(o:exec("update user set name='woo' where ID=2"))
 
 local r = o:exec("select * from user;", function(t) 
 	print('on batch call back:', t)
