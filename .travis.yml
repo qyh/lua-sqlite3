@@ -1,4 +1,4 @@
-language: c lua
+language: c 
 before_install: sudo apt-get  install lua
 rvm:
  - 4.8
