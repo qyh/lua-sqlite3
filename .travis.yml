@@ -1,0 +1,6 @@
+language: c lua
+before_install: sudo apt-get  install lua
+rvm:
+ - 4.8
+ - 5.0 
+script: make  
