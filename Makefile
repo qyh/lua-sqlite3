@@ -1,4 +1,4 @@
-.PHONY: all lua clean install test SQLITE_SO
+.PHONY: all lua sqlite clean install test SQLITE_SO
 # Target files
 all:	sub	lua sqlite SQLITE_SO
 # Which compiler
@@ -6,7 +6,7 @@ CC = gcc -std=c99
 #CC = c99
 CFLAGS = -fPIC -shared
 #LIBS = -llua -lsqlite3
-LIBS = 
+LIBS = -lpthread
 MAKE = make
 LUA_PATH=./lua
 LUA_CFLAGS = -fPIC
@@ -18,8 +18,8 @@ sqlite:
 	$(MAKE) -C $(SQLITE_PATH)
 	cp $(SQLITE_PATH)/.libs/libsqlite3.a ./
 
-..c.o:	
-	$(CC) -c $<
+#..c.o:	
+#	$(CC) -c $<
 sub:
 	git submodule update --init
 lua:
