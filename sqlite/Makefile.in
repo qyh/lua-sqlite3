@@ -29,7 +29,7 @@ BCC = @BUILD_CC@ @BUILD_CFLAGS@
 # on the "make" command-line.  Ex:  "make CC=clang CFLAGS=-fsanitize=undefined"
 #
 CC = @CC@
-CFLAGS = @CPPFLAGS@ @CFLAGS@
+CFLAGS = @CPPFLAGS@ @CFLAGS@ -fPIC
 TCC = ${CC} ${CFLAGS} -I. -I${TOP}/src -I${TOP}/ext/rtree -I${TOP}/ext/icu
 TCC += -I${TOP}/ext/fts3 -I${TOP}/ext/async -I${TOP}/ext/session
 TCC += -I${TOP}/ext/userauth
