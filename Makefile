@@ -10,12 +10,14 @@ LIBS = -lpthread
 MAKE = make
 LUA_PATH=./lua
 LUA_CFLAGS = -fPIC
+SQLITE_CFLAGS = -fPIC 
 SQLITE_PATH = ./sqlite
 
 SQLITE_SO := sqlite.so
 
 sqlite:
-	$(MAKE) -C $(SQLITE_PATH)
+	cd $(SQLITE_PATH) && ./configure --prefix=/usr/local
+	$(MAKE) -C $(SQLITE_PATH) 
 	cp $(SQLITE_PATH)/.libs/libsqlite3.a ./
 
 #..c.o:	
