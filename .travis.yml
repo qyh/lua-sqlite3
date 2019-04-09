@@ -1,6 +1,5 @@
 language: c 
-before_install: sudo apt-get  install make 
+before_install: sudo apt-get  install make libreadline-dev
 rvm:
- - 4.8
  - 5.0 
 script: make  
